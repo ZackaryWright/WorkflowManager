@@ -37,7 +37,7 @@ body {
   padding: 3% 0;
 }
 
-.clock {
+#clock {
   color: #4B37FA;
   font-size: 5rem;
 }
