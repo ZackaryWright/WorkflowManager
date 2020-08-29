@@ -5,7 +5,6 @@ body {
 
 .head-container {
   text-align: center;
-  padding: 3%;
   border-radius: 5px;
   width: 90%;
   align-items: center;
@@ -18,7 +17,9 @@ body {
   font-weight: lighter;
 }
 
-.start-btn {
+.start-btn,
+.pause-btn,
+.reset-btn {
   font-family: "Roboto", sans-serif;
   font-size: 1.5rem;
   border: none;
@@ -27,6 +28,18 @@ body {
   color: #fff;
   padding: 2%;
   cursor: pointer;
+  margin: 0 10px;
+}
+
+.pause-btn {
+  display: none;
+}
+
+.reset-btn {
+  display: block;
+  visibility: hidden;
+  margin: 12px auto;
+  width: 20%;
 }
 
 .main-container {
