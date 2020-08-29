@@ -1,16 +1,21 @@
-const timer = document.getElementById('clock')
+// Elements
+const timer = document.getElementById('timer');
+const btn = document.querySelector('.start-btn');
 
-var time = 20
+var startingMinutes = 20;
+let time = startingMinutes * 60;
 
-const btn = document.querySelector('start-btn')
+// Event Listeners
+btn.addEventListener('click', startTimer)
 
-btn.addEventListener('click', function() {
-  document.style.backgroundColor = 'black'
-})
+setInterval(startTimer, 1000);
 
 function startTimer () {
-  if (time >= 0) {
-    timer.innerHTML = time
-    time--
-  }
+  const minutes = Math.floor(time / 60);
+  let seconds = time % 60;
+
+  seconds = seconds < 10 ? '0' + seconds : seconds;
+
+  timer.innerHTML = minutes +":"+seconds;
+  time--;
 }
