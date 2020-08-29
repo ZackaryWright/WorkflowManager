@@ -6,7 +6,7 @@ const resetBtn = document.querySelector('.reset-btn');
 
 var alert = new Audio("sounds/alert.mp3");
 
-var startingMinutes = 1;
+var startingMinutes = 20;
 let time = startingMinutes * 60;
 let intervalId = null;
 
@@ -14,6 +14,7 @@ let pressed = 0;
 
 // Event Listeners
 startBtn.addEventListener('click', function() {
+  resetTimer();
   pauseBtn.style.display = 'inline-block';
   resetBtn.style.visibility = 'visible';
   intervalId = setInterval(startTimer, 1000);
