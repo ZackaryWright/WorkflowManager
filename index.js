@@ -1,18 +1,16 @@
-const var startingMinutes = 20;
-const timer = document.getElementById('clock');
-var time = startingMinutes * 60;
+const timer = document.getElementById('clock')
 
-setInterval(clockCountdown(), 1000);
+var time = 20
 
-function clockCountdown() {
-  const minutes = Math.floor(time/60);
-  const seconds = time % 60;
+const btn = document.querySelector('start-btn')
 
-  if(seconds < 10) {
-    seconds = '0' + seconds;
+btn.addEventListener('click', function() {
+  document.style.backgroundColor = 'black'
+})
+
+function startTimer () {
+  if (time >= 0) {
+    timer.innerHTML = time
+    time--
   }
-
-  timer.innerHTML = minutes + ":" + seconds;
-
-  time--;
 }
