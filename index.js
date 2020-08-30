@@ -6,7 +6,7 @@ const resetBtn = document.querySelector('.reset-btn');
 
 var alert = new Audio("sounds/alert.mp3");
 
-var startingMinutes = 20;
+var startingMinutes = 25;
 let time = startingMinutes * 60;
 let intervalId = null;
 
