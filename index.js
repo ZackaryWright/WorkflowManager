@@ -43,5 +43,6 @@ function stopTimer () {
 function resetTimer() {
   pressed = 0;
   stopTimer();
-  timer.innerHTML = "20:00";
+  time = 1500;
+  timer.innerHTML = "25:00";
 }
