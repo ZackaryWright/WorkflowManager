@@ -10,11 +10,11 @@ const alert = new Audio("sounds/alert.mp3");
 
 // Event Listeners
 startBtn.addEventListener('click', visibleStart);
-
 pauseBtn.addEventListener('click', stopTimer);
-
 resetBtn.addEventListener('click', resetTimer);
 
+
+// Makes various elements visible and sets timer interval
 function visibleStart () {
   pauseBtn.style.display = 'inline-block';
   resetBtn.style.visibility = 'visible';
