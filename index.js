@@ -1,5 +1,5 @@
 // Elements
-const timer = document.getElementById('timer');
+const timer = document.getElementById('main-timer');
 const startBtn = document.querySelector('.start-btn');
 const pauseBtn = document.querySelector('.pause-btn');
 const resetBtn = document.querySelector('.reset-btn');
@@ -28,7 +28,7 @@ function startTimer () {
       let seconds = time % 60;
       seconds = seconds < 10 ? '0' + seconds : seconds;
       timer.innerHTML = minutes +":"+seconds;
-      time !== 0 ? time-- : alert.play();
+      time !== 0 ? time-- : alert.play() + alert('5-Minute Break Timer will start (Press Ok)');
 }
 
 // Pauses Countdown
