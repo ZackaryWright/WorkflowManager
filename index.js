@@ -8,7 +8,7 @@ const breakContainer = document.querySelector('.break-container');
 const breakBtn = document.querySelector('.break-btn');
 const breakPauseBtn = document.querySelector('break-pause-btn');
 let startingMinutes = 1;
-let breakStartMin = 5;
+let breakStartMin = 1;
 let time = startingMinutes * 60;
 let breakTime = breakStartMin * 60;
 let intervalId = null;
@@ -19,7 +19,8 @@ const alert = new Audio("sounds/alert.mp3");
 startBtn.addEventListener('click', visibleStart);
 pauseBtn.addEventListener('click', stopTimer);
 resetBtn.addEventListener('click', resetTimer);
-breakBtn.addEventListener('click', )
+breakBtn.addEventListener('click', breakBtnsVisible);
+breakPauseBtn.addEventListener('click', pauseBreak);
 
 // Makes various elements visible and sets timer interval
 function visibleStart () {
@@ -60,9 +61,15 @@ function breakBtnsVisible() {
 }
 
 function startBreak() {
-  breakBtn.removeEventListener('click', breakBtnsVisible);
+  // breakBtn.removeEventListener('click', breakBtnsVisible);
   const minutes = Math.floor(breakTime / 60);
   let seconds = breakTime % 60;
   seconds = seconds < 10 ? '0' + seconds : seconds;
-  timer.innerHTML = minutes +":"+seconds;
+  breakTimer.innerHTML = minutes +":"+seconds;
+  time !== 0 ? time-- : alert('YOUR BREAK IS OVER, MAKE SURE TO GET BACK TO WORK');
+}
+
+function pauseBreak() {
+  clearInterval(intervalId2);
+  breakBtn.addEventListener('click', breakBtnsVisible);
 }
