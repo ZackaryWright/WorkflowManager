@@ -14,6 +14,7 @@ let breakTime = breakStartMin * 60;
 let intervalId = null;
 let intervalId2 = null;
 const alert = new Audio("sounds/alert.mp3");
+const breakOver = new Audio("sounds/break.mp3");
 
 // Event Listeners
 startBtn.addEventListener('click', visibleStart);
@@ -61,12 +62,12 @@ function breakBtnsVisible() {
 }
 
 function startBreak() {
-  // breakBtn.removeEventListener('click', breakBtnsVisible);
+  breakBtn.removeEventListener('click', breakBtnsVisible);
   const minutes = Math.floor(breakTime / 60);
   let seconds = breakTime % 60;
   seconds = seconds < 10 ? '0' + seconds : seconds;
   breakTimer.innerHTML = minutes +":"+seconds;
-  time !== 0 ? time-- : alert('YOUR BREAK IS OVER, MAKE SURE TO GET BACK TO WORK');
+  time !== 0 ? time-- : breakOver.play();
 }
 
 function pauseBreak() {
