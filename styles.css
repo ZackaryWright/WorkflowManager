@@ -20,7 +20,9 @@ body {
 
 .start-btn,
 .pause-btn,
-.reset-btn {
+.reset-btn,
+.break-btn,
+.break-pause-btn {
   font-family: "Roboto", sans-serif;
   font-size: 1.5rem;
   border: none;
@@ -36,7 +38,8 @@ body {
   display: none;
 }
 
-.reset-btn {
+.reset-btn,
+.break-pause-btn {
   display: block;
   visibility: hidden;
   margin: 12px auto;
@@ -55,7 +58,13 @@ body {
 
 .break-container {
   text-align: center;
-  margin: 0 auto;
+  margin: 50px auto;
+  width: 25%;
+  padding: 3% 0;
+  background-color: #F2AA0C;
+  border-radius: 20px;
+  border: 1px solid #0f3460;
+  visibility: hidden;
 }
 
 #main-timer {
