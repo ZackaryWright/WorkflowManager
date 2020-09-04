@@ -7,8 +7,8 @@ const resetBtn = document.querySelector('.reset-btn');
 const breakContainer = document.querySelector('.break-container');
 const breakBtn = document.querySelector('.break-btn');
 const breakPauseBtn = document.querySelector('break-pause-btn');
-let startingMinutes = 25;
-let breakStartMin = 5;
+let startingMinutes = 0.1;
+let breakStartMin = 0.1;
 let time = startingMinutes * 60;
 let breakTime = breakStartMin * 60;
 let intervalId = null;
@@ -21,7 +21,7 @@ startBtn.addEventListener('click', visibleStart);
 pauseBtn.addEventListener('click', stopTimer);
 resetBtn.addEventListener('click', resetTimer);
 breakBtn.addEventListener('click', breakBtnsVisible);
-breakPauseBtn.addEventListener('click', pauseBreak);
+// breakPauseBtn.addEventListener('click', pauseBreak);
 
 // Makes various elements visible and sets timer interval
 function visibleStart () {
@@ -32,14 +32,20 @@ function visibleStart () {
 
 // Starts Countdown
 function startTimer () {
+      let x = 0
       startBtn.removeEventListener('click', visibleStart);
       const minutes = Math.floor(time / 60);
       let seconds = time % 60;
       seconds = seconds < 10 ? '0' + seconds : seconds;
       timer.innerHTML = minutes +":"+seconds;
-      time !== 0 ? time-- : alert.play()
-      time === 0 ? breakContainer.style.visibility = 'visible' :
-      breakContainer.style.visibility = 'hidden';
+      if(time === 0 && x === 0) {
+        alert.play();
+        breakContainer.style.visibility = 'visible';
+        breakBtnsVisible();
+        x++;
+      } else {
+        time--;
+      }
 }
 
 // Pauses Countdown
@@ -57,20 +63,21 @@ function resetTimer() {
 }
 
 function breakBtnsVisible() {
-  breakPauseBtn.style.visibility = 'visible';
-  intervalId2 = setInterval(startBreak, 1000);
+  console.log(4);
+  // breakPauseBtn.style.visibility = 'visible';
+  // intervalId2 = setInterval(startBreak, 1000);
 }
 
 function startBreak() {
   breakBtn.removeEventListener('click', breakBtnsVisible);
-  const minutes = Math.floor(breakTime / 60);
+  const breakMinutes = Math.floor(breakTime / 60);
   let seconds = breakTime % 60;
   seconds = seconds < 10 ? '0' + seconds : seconds;
-  breakTimer.innerHTML = minutes +":"+seconds;
+  breakTimer.innerHTML = breakMinutes + ":" + seconds;
   time !== 0 ? time-- : breakOver.play();
 }
 
 function pauseBreak() {
-  clearInterval(intervalId2);
-  breakBtn.addEventListener('click', breakBtnsVisible);
+  // clearInterval(intervalId2);
+  // breakBtn.addEventListener('click', breakBtnsVisible);
 }
