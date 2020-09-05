@@ -42,6 +42,8 @@ function startTimer () {
         alert.play();
         breakContainer.style.visibility = 'visible';
         breakBtnsVisible();
+        clearInterval(intervalId);
+        intervalId2 = setInterval(startBreak, 1000);
         x++;
       } else {
         time--;
@@ -63,9 +65,8 @@ function resetTimer() {
 }
 
 function breakBtnsVisible() {
-  console.log(4);
-  // breakPauseBtn.style.visibility = 'visible';
-  // intervalId2 = setInterval(startBreak, 1000);
+  breakPauseBtn.style.visibility = 'visible';
+  breakBtn.addEventListener('click', startBreak);
 }
 
 function startBreak() {
@@ -78,6 +79,6 @@ function startBreak() {
 }
 
 function pauseBreak() {
-  // clearInterval(intervalId2);
-  // breakBtn.addEventListener('click', breakBtnsVisible);
+  clearInterval(intervalId2);
+  breakBtn.addEventListener('click', breakBtnsVisible);
 }
