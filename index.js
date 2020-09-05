@@ -7,8 +7,8 @@ const resetBtn = document.querySelector('.reset-btn');
 const breakContainer = document.querySelector('.break-container');
 const breakBtn = document.querySelector('.break-btn');
 const breakPauseBtn = document.querySelector('break-pause-btn');
-let startingMinutes = 0.1;
-let breakStartMin = 0.1;
+let startingMinutes = 25;
+let breakStartMin = 5;
 let time = startingMinutes * 60;
 let breakTime = breakStartMin * 60;
 let intervalId = null;
@@ -43,7 +43,6 @@ function startTimer () {
         breakContainer.style.visibility = 'visible';
         breakBtnsVisible();
         clearInterval(intervalId);
-        intervalId2 = setInterval(startBreak, 1000);
         x++;
       } else {
         time--;
@@ -66,6 +65,7 @@ function resetTimer() {
 
 function breakBtnsVisible() {
   breakPauseBtn.style.visibility = 'visible';
+  intervalId2 = setInterval(startBreak, 1000);
   breakBtn.addEventListener('click', startBreak);
 }
 
