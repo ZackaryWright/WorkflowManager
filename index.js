@@ -20,7 +20,7 @@ const breakOver = new Audio("sounds/break.mp3");
 startBtn.addEventListener('click', visibleStart);
 pauseBtn.addEventListener('click', stopTimer);
 resetBtn.addEventListener('click', resetTimer);
-breakBtn.addEventListener('click', breakBtnsVisible);
+breakBtn.addEventListener('click', startBreak);
 // breakPauseBtn.addEventListener('click', pauseBreak);
 
 // Makes various elements visible and sets timer interval
@@ -41,7 +41,8 @@ function startTimer () {
       if(time === 0 && x === 0) {
         alert.play();
         breakContainer.style.visibility = 'visible';
-        breakBtnsVisible();
+        intervalId2 = setInterval(startBreak, 1000);
+        startBreak();
         clearInterval(intervalId);
         x++;
       } else {
@@ -63,14 +64,12 @@ function resetTimer() {
   startBtn.addEventListener('click', visibleStart);
 }
 
-function breakBtnsVisible() {
-  breakPauseBtn.style.visibility = 'visible';
-  intervalId2 = setInterval(startBreak, 1000);
-  breakBtn.addEventListener('click', startBreak);
+function breakBtnsVisible () {
+  // breakBtn.removeEventListener('click', breakBtnsVisible);
 }
 
-function startBreak() {
-  breakBtn.removeEventListener('click', breakBtnsVisible);
+function startBreak () {
+  breakPauseBtn.style.visibility = 'visible';
   const breakMinutes = Math.floor(breakTime / 60);
   let seconds = breakTime % 60;
   seconds = seconds < 10 ? '0' + seconds : seconds;
@@ -78,7 +77,7 @@ function startBreak() {
   time !== 0 ? time-- : breakOver.play();
 }
 
-function pauseBreak() {
+function pauseBreak () {
   clearInterval(intervalId2);
   breakBtn.addEventListener('click', breakBtnsVisible);
 }
