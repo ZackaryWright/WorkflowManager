@@ -21,7 +21,7 @@ startBtn.addEventListener('click', visibleStart);
 pauseBtn.addEventListener('click', stopTimer);
 resetBtn.addEventListener('click', resetTimer);
 breakBtn.addEventListener('click', startBreak);
-// breakPauseBtn.addEventListener('click', pauseBreak);
+breakPauseBtn.addEventListener('click', pauseBreak);
 
 // Makes various elements visible and sets timer interval
 function visibleStart () {
@@ -65,7 +65,7 @@ function resetTimer() {
 }
 
 function breakBtnsVisible () {
-  // breakBtn.removeEventListener('click', breakBtnsVisible);
+  breakBtn.removeEventListener('click', breakBtnsVisible);
 }
 
 function startBreak () {
