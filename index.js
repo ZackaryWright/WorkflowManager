@@ -6,7 +6,7 @@ const pauseBtn = document.querySelector('.pause-btn');
 const resetBtn = document.querySelector('.reset-btn');
 const breakContainer = document.querySelector('.break-container');
 const breakBtn = document.querySelector('.break-btn');
-const breakPauseBtn = document.querySelector('break-pause-btn');
+const breakPauseBtn = document.querySelector('.break-pause-btn');
 let startingMinutes = 25;
 let breakStartMin = 5;
 let time = startingMinutes * 60;
@@ -20,7 +20,6 @@ const breakOver = new Audio("sounds/break.mp3");
 startBtn.addEventListener('click', visibleStart);
 pauseBtn.addEventListener('click', stopTimer);
 resetBtn.addEventListener('click', resetTimer);
-breakBtn.addEventListener('click', startBreak);
 breakPauseBtn.addEventListener('click', pauseBreak);
 
 // Makes various elements visible and sets timer interval
@@ -41,9 +40,7 @@ function startTimer () {
       if(time === 0 && x === 0) {
         alert.play();
         breakContainer.style.visibility = 'visible';
-        intervalId2 = setInterval(startBreak, 1000);
-        startBreak();
-        clearInterval(intervalId);
+        breakBtn.addEventListener('click', breakBtnsVisible);
         x++;
       } else {
         time--;
@@ -65,19 +62,20 @@ function resetTimer() {
 }
 
 function breakBtnsVisible () {
-  breakBtn.removeEventListener('click', breakBtnsVisible);
+  breakPauseBtn.style.visibility = 'visible';
+  intervalId2 = setInterval(startBreak, 1000);
 }
 
 function startBreak () {
-  breakPauseBtn.style.visibility = 'visible';
+  breakBtn.removeEventListener('click', breakBtnsVisible);
   const breakMinutes = Math.floor(breakTime / 60);
   let seconds = breakTime % 60;
   seconds = seconds < 10 ? '0' + seconds : seconds;
   breakTimer.innerHTML = breakMinutes + ":" + seconds;
-  time !== 0 ? time-- : breakOver.play();
+  breakTime !== 0 ? breakTime-- : breakOver.play();
 }
 
-function pauseBreak () {
+function pauseBreak() {
   clearInterval(intervalId2);
-  breakBtn.addEventListener('click', breakBtnsVisible);
+  breakBtn.addEventListener('click',breakBtnsVisible);
 }
