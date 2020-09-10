@@ -46,6 +46,10 @@ body {
   width: 20%;
 }
 
+.break-pause-btn {
+  width: 50%;
+}
+
 .main-container {
   text-align: center;
   background-color: #ffc7c7;
@@ -102,8 +106,49 @@ body {
 }
 
 .footer-logo {
+  position: absolute;
   color: #fff;
   font-size: 3rem;
-  float: right;
-  margin: 0 5px;
+  right: 2%;
+}
+
+/* Media Queries */
+@media (min-width: 320px) and (max-width: 500px) {
+  :root {
+    font-size: 0.7em;
+  }
+
+  .start-btn,
+  .pause-btn,
+  .reset-btn,
+  .break-btn,
+  .break-pause-btn {
+    padding: 5%;
+  }
+
+  .reset-btn,
+  .break-pause-btn {
+    width: 40%;
+  }
+
+  .break-pause-btn {
+    width: 65%;
+  }
+
+  .main-container {
+    width: 55%;
+  }
+
+  .break-container {
+    width: 55%;
+  }
+
+  .footer-container {
+    padding: 7% 0;
+  }
+
+  .footer-logo {
+    right: 5%;
+  }
+
 }

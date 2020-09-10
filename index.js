@@ -56,7 +56,10 @@ function stopTimer () {
 // Clears clock and starts countdown over
 function resetTimer() {
   stopTimer();
+  pauseBreak();
+  breakTime = 300;
   time = 1500;
+  breakTimer.innerHTML = "5:00";
   timer.innerHTML = "25:00";
   startBtn.addEventListener('click', visibleStart);
 }
@@ -77,5 +80,5 @@ function startBreak () {
 
 function pauseBreak() {
   clearInterval(intervalId2);
-  breakBtn.addEventListener('click',breakBtnsVisible);
+  breakBtn.addEventListener('click', breakBtnsVisible);
 }
