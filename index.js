@@ -13,8 +13,22 @@ let time = startingMinutes * 60;
 let breakTime = breakStartMin * 60;
 let intervalId = null;
 let intervalId2 = null;
-const alert = new Audio("sounds/alert.mp3");
-const breakOver = new Audio("sounds/break.mp3");
+
+/* Sound effects for Alarms*/
+
+// Original setup (doesnt work with Safari on IOS 14 in mobile)
+// const alertSound = new Audio("sounds/alert.mp3");
+// const breakOver = new Audio("sounds/break.mp3");
+
+// New Way of doing sounds to work with IOS 14 safari
+const alertSound = new Audio();
+const breakOver = new Audio();
+
+alertSound.autoplay = true;
+breakOver.autoplay = true;
+
+alertSound.src = 'sounds/alert.mp3';
+breakOver.src = 'sounds/break.mp3';
 
 // Event Listeners
 startBtn.addEventListener('click', visibleStart);
@@ -38,7 +52,7 @@ function startTimer () {
       seconds = seconds < 10 ? '0' + seconds : seconds;
       timer.innerHTML = minutes +":"+seconds;
       if(time === 0 && x === 0) {
-        alert.play();
+        alertSound.play();
         breakContainer.style.visibility = 'visible';
         breakBtn.addEventListener('click', breakBtnsVisible);
         x++;
