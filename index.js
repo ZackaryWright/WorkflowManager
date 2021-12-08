@@ -7,8 +7,8 @@ const resetBtn = document.querySelector('.reset-btn');
 const breakContainer = document.querySelector('.break-container');
 const breakBtn = document.querySelector('.break-btn');
 const breakPauseBtn = document.querySelector('.break-pause-btn');
-let startingMinutes = 1;
-let breakStartMin = 1;
+let startingMinutes = 25;
+let breakStartMin = 5;
 let time = startingMinutes * 60;
 let breakTime = breakStartMin * 60;
 let intervalId = null;
@@ -71,10 +71,10 @@ function stopTimer () {
 function resetTimer() {
   stopTimer();
   pauseBreak();
-  breakTime = 60;
-  time = 60;
-  breakTimer.innerHTML = "1:00";
-  timer.innerHTML = "1:00";
+  breakTime = 300;
+  time = 1500;
+  breakTimer.innerHTML = "5:00";
+  timer.innerHTML = "25:00";
   startBtn.addEventListener('click', visibleStart);
 }
 
