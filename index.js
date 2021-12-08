@@ -71,10 +71,10 @@ function stopTimer () {
 function resetTimer() {
   stopTimer();
   pauseBreak();
-  breakTime = 300;
-  time = 1500;
-  breakTimer.innerHTML = "5:00";
-  timer.innerHTML = "25:00";
+  breakTime = 60;
+  time = 60;
+  breakTimer.innerHTML = "1:00";
+  timer.innerHTML = "1:00";
   startBtn.addEventListener('click', visibleStart);
 }
 
