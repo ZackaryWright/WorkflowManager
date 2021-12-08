@@ -7,8 +7,8 @@ const resetBtn = document.querySelector('.reset-btn');
 const breakContainer = document.querySelector('.break-container');
 const breakBtn = document.querySelector('.break-btn');
 const breakPauseBtn = document.querySelector('.break-pause-btn');
-let startingMinutes = 1;
-let breakStartMin = 1;
+let startingMinutes = 25;
+let breakStartMin = 5;
 let time = startingMinutes * 60;
 let breakTime = breakStartMin * 60;
 let intervalId = null;
@@ -20,7 +20,7 @@ let intervalId2 = null;
 // const alertSound = new Audio("sounds/alert.mp3");
 // const breakOver = new Audio("sounds/break.mp3");
 
-// New Way of doing sounds to work with IOS 14 safari
+//  Trying a new Way of doing sounds to work with IOS 14 safari
 const alertSound = new Audio();
 const breakOver = new Audio();
 
@@ -77,8 +77,8 @@ function resetTimer() {
   pauseBreak();
   breakTime = 300;
   time = 1500;
-  breakTimer.innerHTML = "1:00";
-  timer.innerHTML = "1:00";
+  breakTimer.innerHTML = "5:00";
+  timer.innerHTML = "25:00";
   startBtn.addEventListener('click', visibleStart);
 }
 
