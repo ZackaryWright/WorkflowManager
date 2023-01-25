@@ -7,6 +7,6 @@ Manager to keep productive workflow
 
 - May be updated in future to support custom times/intervals
 
-Try it out here: http://zackarywright.me/WorkflowManager/
+Try it out here: https://zackarywright.github.io/WorkflowManager/
 
 
